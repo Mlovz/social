@@ -11,7 +11,7 @@ import { checkImage } from "utils/ImageUpload";
 import { GLOBAL_TYPES } from "redux/types/globalTypes";
 import { updateUser } from "redux/actions/profileAction";
 
-const EditProfile = () => {
+const EditProfile = ({ setOpen }) => {
   const schema = yup.object().shape({
     fullname: yup.string().required("Поле fullname обязательное!"),
     mobile: yup.string(),
@@ -61,10 +61,12 @@ const EditProfile = () => {
       gender: select,
     };
 
-    await dispatch(updateUser(newData, file, auth));
-  };
+    const res = await dispatch(updateUser(newData, file, auth));
 
-  console.log(isSubmitting);
+    if (res.data) {
+      setOpen(false);
+    }
+  };
 
   return (
     <div className="edit-profile">

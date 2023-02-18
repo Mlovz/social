@@ -41,7 +41,7 @@ export const updateUser = (userData, avatar, auth) => async (dispatch) => {
       },
       auth.token
     );
-    console.log(res);
+
     if (res.data) {
       dispatch({
         type: AUTH_TYPES.AUTH,
@@ -60,6 +60,8 @@ export const updateUser = (userData, avatar, auth) => async (dispatch) => {
         payload: "Профиль обновлен!",
       });
     }
+
+    return res;
   } catch (err) {
     dispatch({
       type: GLOBAL_TYPES.ERROR,

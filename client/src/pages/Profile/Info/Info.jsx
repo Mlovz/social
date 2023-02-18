@@ -72,8 +72,11 @@ const Info = () => {
             <div className="info_body_content">
               <h2 className="fs_24">{item.fullname}</h2>
               <span className="fs_14">@{item.username}</span>
-              <a href={item.website}>{item.website}</a>
-              <h3>{item.mobile}</h3>
+              <a href={item.website} target="_blank">
+                {item.website}
+              </a>
+              <a href={`tel:${item.mobile}`}>{item.mobile}</a>
+              <h3>{item.address}</h3>
               <p className="fs_16">{item.story}</p>
             </div>
           </div>
@@ -87,7 +90,7 @@ const Info = () => {
           )}
 
           <Modal open={open || !!followers} onClose={onClose} type="medium">
-            {open && <EditProfile />}
+            {open && <EditProfile setOpen={setOpen} />}
             {followers === "followers" && (
               <Followed
                 id={auth.user?._id}
