@@ -1,0 +1,29 @@
+@use "src/sass/abstracts" as *;
+
+.user-card {
+  display: flex;
+  align-items: center;
+
+  &_text {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+
+    > h6 {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      color: $gray_900;
+    }
+    > span {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      color: $red_900;
+    }
+  }
+
+  &_child {
+    margin-left: auto;
+  }
+}

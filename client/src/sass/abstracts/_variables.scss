@@ -1,0 +1,42 @@
+$fontsize: 16px; // Body Font Size
+$lineheight: 150%; // Document Line Height
+$userfont: "Montserrat", sans-serif; // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif; // System Font Family
+
+//Colors
+
+//White
+$white: #ffffff;
+
+//Black
+$black: #000000;
+
+//Blue
+$blue_900: #012959;
+
+//Red
+$red_100: #fa748f;
+$red_900: #ff2c55;
+$red_hover: #ff2c5634;
+
+//Gray
+$gray_100: #e6e6e6;
+$gray_200: rgba(26, 26, 26, 0.4);
+$gray_300: #b3b3b3;
+$gray_800: #2c2c2c;
+$gray_900: #1a1a1a;
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 30px;
+$gutter: $grid-gutter-width;
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1170px,
+);
+
+$headerHeight: 46px;
+// $headerMobileHeight: 46px;
+$mobile-width: 600px;
+$tablet-width: 1366px;

@@ -1,0 +1,7 @@
+export const GLOBAL_TYPES = {
+  ERROR: "ERROR",
+  SUCCESS: "SUCCESS",
+  LOADING: "LOADING",
+  GLOBAL: "GLOBAL",
+  THEME: "THEME",
+};

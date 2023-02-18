@@ -1,0 +1,61 @@
+@use "src/sass/abstracts" as *;
+
+.btn {
+  padding: 8px 38px;
+  background: $red_900;
+  border-radius: 7px;
+  color: $white;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:disabled {
+    opacity: 0.2;
+  }
+
+  &.outline {
+    border: 1px solid $red_900;
+    background: transparent;
+    color: $red_900;
+    &:hover {
+      background: $red_hover;
+    }
+  }
+
+  &.bd {
+    color: $red_900;
+    border-bottom: 1px dashed transparent;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    width: max-content;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    &:hover {
+      border-bottom: 1px dashed $red_900;
+    }
+  }
+
+  &.edit {
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    color: $gray_900;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  &.submit {
+    height: 54px;
+  }
+}

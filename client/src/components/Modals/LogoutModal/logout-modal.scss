@@ -1,0 +1,17 @@
+
+
+.logout-modal{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  &_footer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .btn{
+      width: 50%;
+    }
+  }
+}

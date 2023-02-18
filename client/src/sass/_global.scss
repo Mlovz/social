@@ -1,0 +1,102 @@
+@import "./abstracts";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $userfont;
+  font-size: $fontsize;
+  line-height: $lineheight;
+}
+
+::placeholder {
+  color: #e5e5e5;
+}
+
+::selection {
+  background-color: $red_900;
+  color: #fff;
+}
+
+input,
+textarea,
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+body {
+  color: $gray_900;
+  min-width: 320px;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  // background: #E5E5E5;
+  // background: $gray_10
+}
+
+.container {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#theme {
+  display: none;
+}
+#theme:checked ~ * {
+  filter: invert(1);
+}
+
+svg {
+  display: flex;
+}
+
+// .slick-dots {
+//   bottom: 15px !important;
+
+//   li {
+//     margin: 0 0 !important;
+
+//     button {
+//       padding: 0 !important;
+
+//       &:before {
+//         content: "" !important;
+//         width: 10px !important;
+//         height: 10px !important;
+//         background: $blue_200 !important;
+//         border-radius: 50%;
+//         opacity: 1 !important;
+//       }
+//     }
+
+//     &.slick-active button:before {
+//       background: $blue_500 !important;
+//     }
+//   }
+// }

@@ -1,0 +1,13 @@
+@use '@/sass/abstracts' as *;
+
+.success{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+
+  .heading{
+    color: $gray_900;
+  }
+}

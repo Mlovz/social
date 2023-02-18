@@ -1,0 +1,68 @@
+@use "src/sass/abstracts" as *;
+
+.navbar_form {
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid $gray_100;
+  border-radius: 6px;
+  height: 40px;
+  position: relative;
+
+  input {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    padding-right: 20px;
+  }
+
+  &_close {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    font-size: 25px;
+    line-height: 13px;
+    color: $gray_300;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+  }
+
+  &_users {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    border: 1px solid $gray_100;
+    border-radius: 10px;
+    background: $white;
+    min-height: 200px;
+    max-height: 400px;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    overflow-y: auto;
+
+    > h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $gray_100;
+    }
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &_user {
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+      background: $gray_100;
+    }
+  }
+}

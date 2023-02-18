@@ -1,0 +1,15 @@
+@use "src/sass/abstracts" as *;
+
+.followed {
+  &_box {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    > h1 {
+      color: $gray_100;
+      text-align: center;
+    }
+  }
+}

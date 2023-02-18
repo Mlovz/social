@@ -1,0 +1,56 @@
+@use "src/sass/abstracts" as *;
+
+.edit-profile {
+  &_ava {
+    margin-bottom: 40px;
+    > h2 {
+      margin-top: 10px;
+      text-align: center;
+      color: $red_900;
+    }
+
+    > div {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 0;
+        cursor: pointer;
+        z-index: 100;
+      }
+      &:hover {
+        .edit-profile_ava_add {
+          bottom: 0%;
+        }
+      }
+    }
+
+    &_add {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      bottom: -100%;
+      background: #ffc9c965;
+      transition: all 0.2s;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      svg {
+        cursor: pointer;
+        path {
+          fill: #fff;
+        }
+      }
+    }
+  }
+}

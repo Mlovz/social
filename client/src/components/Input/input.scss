@@ -1,0 +1,115 @@
+@use "src/sass/abstracts" as *;
+
+.field {
+  position: relative;
+  width: 100%;
+  min-height: 54px;
+
+  &_label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    z-index: 2;
+    font-weight: normal;
+    opacity: 0.5;
+    border-radius: 5px;
+    color: $gray_300;
+    font-size: 16px;
+    line-height: 150%;
+    transition: all 0.1s;
+    pointer-events: none;
+
+    &.textarea {
+      top: 10px;
+      transform: translateY(0);
+    }
+  }
+
+  &.active {
+    .field_label {
+      display: block;
+      top: -8px;
+      transform: none;
+      padding: 0 7px 0px 9px;
+      font-size: 12px;
+      line-height: 130%;
+      margin: 0;
+      background: $white;
+      opacity: 1;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      &.error {
+        color: red;
+      }
+    }
+  }
+
+  &_danger {
+    color: red;
+    line-height: 10px;
+  }
+
+  &_input,
+  &_textarea {
+    border: 1.5px solid $gray_100;
+    border-radius: 10px;
+    height: 100%;
+    padding: 15px;
+    color: $black;
+    width: 100%;
+    position: relative;
+    // z-index: -1;
+    background: transparent;
+
+    &:disabled {
+      pointer-events: none;
+      // opacity: 0.2;
+    }
+
+    &::placeholder {
+      color: $gray_300;
+      // opacity: 0.5;
+    }
+
+    &.active {
+      border-color: $red_900;
+    }
+    &:focus {
+      border: 1.5px solid $red_900;
+      .field_label {
+        display: block;
+        top: -8px;
+        transform: none;
+        padding: 0 7px 2px 9px;
+        font-size: 12px;
+        line-height: 130%;
+        margin: 0;
+        background: $white;
+        opacity: 1;
+      }
+    }
+
+    &.error {
+      border: 1.5px solid red !important;
+      &:focus {
+        border: 1.5px solid red !important;
+      }
+    }
+  }
+
+  &_textarea {
+    height: 200px;
+  }
+
+  &_eye {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 19px;
+    z-index: 2;
+    cursor: pointer;
+  }
+}

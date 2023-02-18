@@ -1,0 +1,42 @@
+.navbar {
+  background: #fff;
+  box-shadow: 0px 4px 100px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+
+  &_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+  }
+
+  &_logo {
+    display: flex;
+  }
+
+  &_form {
+    width: 400px;
+    input {
+      height: 40px;
+      border-radius: 5px;
+    }
+  }
+
+  &_user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+  }
+
+  &_btns {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}

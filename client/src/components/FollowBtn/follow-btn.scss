@@ -1,0 +1,22 @@
+@use "src/sass/abstracts" as *;
+
+.follow {
+  border: 1px solid transparent;
+  background: $red_900;
+  padding: 5px 30px;
+  width: 180px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &.unfollowing {
+    background: transparent;
+    border: 1px solid $red_900;
+    color: $red_900;
+  }
+
+  &.small {
+    width: 120px;
+    padding: 0px;
+  }
+}

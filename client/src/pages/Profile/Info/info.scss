@@ -1,0 +1,55 @@
+@use "src/sass/abstracts" as *;
+
+.info {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  justify-content: space-between;
+
+  &_body {
+    &_header {
+      display: flex;
+      gap: 70px;
+      > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2 {
+          font-weight: 600;
+          font-size: 32px;
+          line-height: 39px;
+        }
+        span {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
+      .info_follow {
+        cursor: pointer;
+        color: $red_100;
+        border-bottom: 1px dashed transparent;
+        &:hover {
+          color: $red_900;
+          text-decoration: dashed;
+          border-bottom: 1px dashed $red_900;
+        }
+      }
+    }
+    &_content {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      span {
+        color: $red_900;
+      }
+    }
+  }
+
+  > .btn {
+    max-width: 284px;
+    width: 100%;
+  }
+}
