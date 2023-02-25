@@ -1,0 +1,21 @@
+.home {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  gap: 40px;
+
+  &-posts {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &-users {
+    position: sticky;
+    right: 0;
+    top: 0;
+    width: 365px;
+  }
+}

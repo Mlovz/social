@@ -1,0 +1,26 @@
+@use "src/sass/abstracts" as *;
+
+.right-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  .right_card {
+    padding: 10px 15px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid $gray_100;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    &_followers {
+      color: $red_900;
+    }
+
+    > h1 {
+      font-weight: 800;
+      text-align: right;
+    }
+  }
+}

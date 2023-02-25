@@ -3,27 +3,32 @@ import { AUTH_TYPES } from "redux/types/authTypes";
 import { GLOBAL_TYPES } from "redux/types/globalTypes";
 import { PROFILE_TYPES } from "redux/types/profileTypes";
 import { ImageUpload } from "utils/ImageUpload";
+import { createNotify, removeNotify } from "./notifyAction";
 
 export const getProfileUser =
-  ({ users, id, auth }) =>
+  ({ id, auth }) =>
   async (dispatch) => {
-    if (users.every((user) => user._id !== id)) {
-      try {
-        dispatch({ type: PROFILE_TYPES.LOADING, payload: true });
+    dispatch({ type: PROFILE_TYPES.GET_ID, payload: id });
+    try {
+      dispatch({ type: PROFILE_TYPES.LOADING, payload: true });
 
-        const res = await api.get(`user/${id}`, auth.token);
+      const res = await api.get(`user/${id}`, auth.token);
+      const res1 = await api.get(`user_posts/${id}`, auth.token);
 
-        if (res.data) {
-          dispatch({ type: PROFILE_TYPES.GET_USER, payload: res.data });
-        }
-        dispatch({ type: PROFILE_TYPES.LOADING, payload: false });
-      } catch (err) {
+      if (res.data && res1.data) {
+        dispatch({ type: PROFILE_TYPES.GET_USER, payload: res.data });
         dispatch({
-          type: GLOBAL_TYPES.ERROR,
-          payload: err.response.data.msg,
+          type: PROFILE_TYPES.GET_POSTS,
+          payload: { ...res1.data, page: 2, _id: id },
         });
-        dispatch({ type: PROFILE_TYPES.LOADING, payload: false });
       }
+      dispatch({ type: PROFILE_TYPES.LOADING, payload: false });
+    } catch (err) {
+      dispatch({
+        type: GLOBAL_TYPES.ERROR,
+        payload: err.response.data.msg,
+      });
+      dispatch({ type: PROFILE_TYPES.LOADING, payload: false });
     }
   };
 
@@ -71,7 +76,7 @@ export const updateUser = (userData, avatar, auth) => async (dispatch) => {
 };
 
 export const follow =
-  ({ users, user, auth }) =>
+  ({ users, user, auth, socket }) =>
   async (dispatch) => {
     let newUser;
 
@@ -96,12 +101,21 @@ export const follow =
 
     try {
       const res = await api.patch(`user/${user._id}/follow`, null, auth.token);
-      console.log(res);
+      socket.emit("follow", res.data.newUser);
+
+      const msg = {
+        id: auth.user._id,
+        text: "Подписался на ваши обновления",
+        recipients: [newUser._id],
+        url: `/profile/${auth.user._id}`,
+      };
+
+      dispatch(createNotify({ msg, auth, socket }));
     } catch (err) {}
   };
 
 export const unfollow =
-  ({ users, user, auth }) =>
+  ({ users, user, auth, socket }) =>
   async (dispatch) => {
     let newUser;
 
@@ -142,6 +156,15 @@ export const unfollow =
         null,
         auth.token
       );
-      console.log(res);
+      socket.emit("unFollow", res.data.newUser);
+
+      const msg = {
+        id: auth.user._id,
+        text: "Подписался на ваши обновления",
+        recipients: [newUser._id],
+        url: `/profile/${auth.user._id}`,
+      };
+
+      dispatch(removeNotify({ msg, auth, socket }));
     } catch (err) {}
   };

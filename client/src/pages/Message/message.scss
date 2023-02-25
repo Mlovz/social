@@ -1,0 +1,9 @@
+@use "src/sass/abstracts" as *;
+
+.message {
+  border: 1px solid $gray_100;
+  background: #fff;
+  border-radius: 10px;
+  height: calc(100vh - 200px);
+  display: flex;
+}

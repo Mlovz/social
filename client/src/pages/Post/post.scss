@@ -1,0 +1,12 @@
+.post {
+  .post-card {
+    max-width: 100%;
+    .slick-slider {
+      width: 100% !important;
+      height: 400px !important;
+      img {
+        height: 100%;
+      }
+    }
+  }
+}

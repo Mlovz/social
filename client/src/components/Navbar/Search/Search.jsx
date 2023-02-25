@@ -38,7 +38,7 @@ const Search = ({ token }) => {
 
       getUsers();
     }
-  }, [search]);
+  }, [search, token, dispatch]);
 
   const onClose = () => {
     setSearch("");

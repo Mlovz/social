@@ -1,0 +1,11 @@
+.like {
+  &.liked {
+    animation: anim 0.2s ease-in-out;
+  }
+
+  @keyframes anim {
+    100% {
+      transform: scale(1.8);
+    }
+  }
+}

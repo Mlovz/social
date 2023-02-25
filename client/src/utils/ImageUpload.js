@@ -1,10 +1,14 @@
 export const checkImage = (file) => {
   let err = "";
-  if (file.size > 1024 * 1024)
-    // 1mb
-    err = "Размер фото слишком большой (1mb)";
+  // if (file.size > 1024 * 1024)
+  //   // 1mb
+  //   err = "Размер фото слишком большой (1mb)";
 
-  if (file.type !== "image/jpeg" && file.type !== "image/png")
+  if (
+    file.type !== "image/jpeg" &&
+    file.type !== "image/png" &&
+    file.type !== "image/avif"
+  )
     err = "Формат изображении не (jpeg, png)!";
   return err;
 };
@@ -15,10 +19,14 @@ export const ImageUpload = async (images) => {
   for (const img of images) {
     const formData = new FormData();
 
-    formData.append("file", img);
+    if (img.camera) {
+      formData.append("file", img.camera);
+    } else {
+      formData.append("file", img);
+    }
 
     formData.append("cloud_name", "daggokgzh");
-    formData.append("upload_preset", "nthrj4wa");
+    formData.append("upload_preset", "sbmluzj6");
 
     const res = await fetch(
       "https://api.cloudinary.com/v1_1/daggokgzh/upload",

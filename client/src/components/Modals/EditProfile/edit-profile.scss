@@ -1,6 +1,11 @@
 @use "src/sass/abstracts" as *;
 
 .edit-profile {
+  .lds-dual-ring:after {
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+  }
+
   &_ava {
     margin-bottom: 40px;
     > h2 {

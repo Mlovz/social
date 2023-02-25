@@ -1,0 +1,41 @@
+@use "src/sass/abstracts" as *;
+
+.card-footer {
+  padding: 10px;
+
+  svg {
+    cursor: pointer;
+  }
+
+  &_icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &_icon {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+
+  &_content {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    word-break: break-all;
+
+    &_text {
+      .username {
+        font-weight: 600;
+      }
+    }
+  }
+
+  &_info {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

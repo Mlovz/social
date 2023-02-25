@@ -1,0 +1,19 @@
+@use "src/sass/abstracts" as *;
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &_show {
+    transform: translateY(-10px);
+    padding: 0 10px;
+    font-size: 12px;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+    &:hover {
+      color: $red_900;
+    }
+  }
+}

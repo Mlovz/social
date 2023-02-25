@@ -55,14 +55,21 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  // background: #E5E5E5;
   // background: $gray_10
+}
+
+.app {
+  min-height: 100vh;
+  background: #f1fafa;
 }
 
 .container {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
+}
+
+.loading_image {
 }
 
 #theme {
@@ -76,27 +83,84 @@ svg {
   display: flex;
 }
 
-// .slick-dots {
-//   bottom: 15px !important;
+.slick-dots {
+  bottom: 15px !important;
 
-//   li {
-//     margin: 0 0 !important;
+  li {
+    margin: 0 0 !important;
 
-//     button {
-//       padding: 0 !important;
+    button {
+      padding: 0 !important;
 
-//       &:before {
-//         content: "" !important;
-//         width: 10px !important;
-//         height: 10px !important;
-//         background: $blue_200 !important;
-//         border-radius: 50%;
-//         opacity: 1 !important;
-//       }
-//     }
+      &:before {
+        content: "" !important;
+        width: 7px !important;
+        height: 7px !important;
+        background: $red_hover !important;
+        border-radius: 50%;
+        opacity: 1 !important;
+      }
+    }
 
-//     &.slick-active button:before {
-//       background: $blue_500 !important;
-//     }
-//   }
-// }
+    &.slick-active button:before {
+      background: $red_900 !important;
+    }
+  }
+}
+
+.circle {
+  display: none !important;
+  z-index: 100 !important;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: #ffffff !important;
+  border: 1px solid #d9d9d9 !important;
+  box-sizing: border-box !important;
+  height: 40px !important;
+  width: 40px !important;
+  border-radius: 50% !important;
+  outline: none !important;
+  cursor: pointer !important;
+  font-size: 42px !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  &-prev {
+    left: 16px !important;
+  }
+
+  &-next {
+    right: 16px !important;
+  }
+
+  > svg {
+    width: 20px !important;
+    fill: #0000009b !important;
+  }
+}
+
+.readMore {
+  font-size: 12px;
+  color: $red_900;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.round {
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: $red_900;
+  border-radius: 50%;
+
+  &_small {
+    width: 8px;
+    height: 8px;
+    background: #c4c4c4;
+  }
+
+  &.active {
+    background: #00d836;
+  }
+}

@@ -1,20 +1,8 @@
 import React from "react";
 import "./spinner.scss";
 
-const Spinner = () => {
-  return (
-    <div className="fingerprint-spinner">
-      <div className="spinner-ring"></div>
-      <div className="spinner-ring"></div>
-      <div className="spinner-ring"></div>
-      <div className="spinner-ring"></div>
-      <div className="spinner-ring"></div>
-      <div className="spinner-ring"></div>
-      <div className="spinner-ring"></div>
-      <div className="spinner-ring"></div>
-      <div className="spinner-ring"></div>
-    </div>
-  );
+const Spinner = ({ color }) => {
+  return <div className={`lds-dual-ring ${color || ""}`}></div>;
 };
 
 export default Spinner;

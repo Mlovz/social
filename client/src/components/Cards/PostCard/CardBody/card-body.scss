@@ -1,0 +1,9 @@
+.card-body {
+  width: 100%;
+
+  &:hover {
+    .circle {
+      display: flex !important;
+    }
+  }
+}

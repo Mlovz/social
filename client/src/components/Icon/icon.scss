@@ -1,0 +1,19 @@
+.icon {
+  &.like {
+    svg {
+      path {
+        fill: red;
+      }
+    }
+  }
+
+  &.anim {
+    animation: anim1 0.2s ease-in-out;
+  }
+
+  @keyframes anim1 {
+    100% {
+      transform: translateY(20px);
+    }
+  }
+}

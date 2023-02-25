@@ -18,7 +18,7 @@ const Notify = () => {
 
       return () => clearTimeout(time);
     }
-  }, [error, loading, success]);
+  }, [error, loading, success, dispatch]);
 
   return (
     <>

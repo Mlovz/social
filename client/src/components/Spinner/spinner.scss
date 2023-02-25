@@ -1,85 +1,34 @@
-.fingerprint-spinner,
-.fingerprint-spinner * {
-  box-sizing: border-box;
+.lds-dual-ring {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:after {
+    content: " ";
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 6px solid #ff2c5634;
+    border-color: #ff2c5634 transparent #ff2c5634 transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  &.white {
+    .lds-dual-ring:after {
+      border: 6px solid #fff;
+      border-color: #fff transparent #fff transparent;
+    }
+  }
 }
 
-.fingerprint-spinner {
-  height: 44px;
-  width: 44px;
-  padding: 2px;
-  overflow: hidden;
-  position: relative;
-}
-
-.fingerprint-spinner .spinner-ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  border-top-color: #fff;
-  animation: fingerprint-spinner-animation 1500ms
-    cubic-bezier(0.68, -0.75, 0.265, 1.75) infinite forwards;
-  margin: auto;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-}
-
-.fingerprint-spinner .spinner-ring:nth-child(1) {
-  height: calc(36px / 9 + 0 * 36px / 9);
-  width: calc(36px / 9 + 0 * 36px / 9);
-  animation-delay: calc(50ms * 1);
-}
-
-.fingerprint-spinner .spinner-ring:nth-child(2) {
-  height: calc(36px / 9 + 1 * 36px / 9);
-  width: calc(36px / 9 + 1 * 36px / 9);
-  animation-delay: calc(50ms * 2);
-}
-
-.fingerprint-spinner .spinner-ring:nth-child(3) {
-  height: calc(36px / 9 + 2 * 36px / 9);
-  width: calc(36px / 9 + 2 * 36px / 9);
-  animation-delay: calc(50ms * 3);
-}
-
-.fingerprint-spinner .spinner-ring:nth-child(4) {
-  height: calc(36px / 9 + 3 * 36px / 9);
-  width: calc(36px / 9 + 3 * 36px / 9);
-  animation-delay: calc(50ms * 4);
-}
-
-.fingerprint-spinner .spinner-ring:nth-child(5) {
-  height: calc(36px / 9 + 4 * 36px / 9);
-  width: calc(36px / 9 + 4 * 36px / 9);
-  animation-delay: calc(50ms * 5);
-}
-
-.fingerprint-spinner .spinner-ring:nth-child(6) {
-  height: calc(36px / 9 + 5 * 36px / 9);
-  width: calc(36px / 9 + 5 * 36px / 9);
-  animation-delay: calc(50ms * 6);
-}
-
-.fingerprint-spinner .spinner-ring:nth-child(7) {
-  height: calc(36px / 9 + 6 * 36px / 9);
-  width: calc(36px / 9 + 6 * 36px / 9);
-  animation-delay: calc(50ms * 7);
-}
-
-.fingerprint-spinner .spinner-ring:nth-child(8) {
-  height: calc(36px / 9 + 7 * 36px / 9);
-  width: calc(36px / 9 + 7 * 36px / 9);
-  animation-delay: calc(50ms * 8);
-}
-
-.fingerprint-spinner .spinner-ring:nth-child(9) {
-  height: calc(36px / 9 + 8 * 36px / 9);
-  width: calc(36px / 9 + 8 * 36px / 9);
-  animation-delay: calc(50ms * 9);
-}
-
-@keyframes fingerprint-spinner-animation {
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
   100% {
     transform: rotate(360deg);
   }

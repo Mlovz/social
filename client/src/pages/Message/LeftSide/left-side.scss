@@ -1,0 +1,38 @@
+@use "src/sass/abstracts" as *;
+
+.left-side {
+  width: 300px;
+  border-right: 1px solid $gray_100;
+
+  &_search {
+    padding: 20px;
+    border-bottom: 1px solid $gray_100;
+    cursor: pointer;
+  }
+
+  &_list {
+    display: flex;
+    flex-direction: column;
+
+    li {
+      display: flex;
+      padding: 10px;
+      cursor: pointer;
+
+      .user-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      &.active {
+        background: $gray_100;
+      }
+
+      &:hover {
+        background: $gray_100;
+      }
+    }
+  }
+}

@@ -1,18 +1,23 @@
-import React, { useRef, useEffect } from "react";
-import { Avatar, Icon } from "components";
+import React, { useRef, useState, useEffect } from "react";
+import { Avatar, Icon, Modal, NotifyDrop, PostModal } from "components";
 import { Link } from "react-router-dom";
 import { navList } from "./constants";
 import User from "assets/user.png";
 
 import "./nav-list.scss";
-import { clickDropDown } from "helpers/clickDropDown";
-import { useDispatch } from "react-redux";
+import { clickDropDown, closeDropDown } from "helpers/clickDropDown";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "redux/actions/authAction";
 import { GLOBAL_TYPES } from "redux/types/globalTypes";
+import { isReadNotify } from "redux/actions/notifyAction";
 
 const NavList = ({ avatar, id, theme }) => {
   const userToggleRef = useRef(null);
   const userContentRef = useRef(null);
+  const notifyToggleRef = useRef(null);
+  const notifyContentRef = useRef(null);
+  const { status: open, notify, auth } = useSelector((state) => state);
+
   const dispatch = useDispatch();
 
   const logout = () => {
@@ -22,6 +27,24 @@ const NavList = ({ avatar, id, theme }) => {
   useEffect(() => {
     clickDropDown(userToggleRef, userContentRef);
   }, [userToggleRef, userContentRef]);
+
+  useEffect(() => {
+    clickDropDown(notifyToggleRef, notifyContentRef);
+  }, [notifyToggleRef, notifyContentRef]);
+
+  const onOpen = () => {
+    dispatch({ type: GLOBAL_TYPES.STATUS, payload: true });
+  };
+
+  const onClose = () => {
+    dispatch({ type: GLOBAL_TYPES.STATUS, payload: false });
+  };
+
+  const onCloseNotify = (msg) => {
+    dispatch(isReadNotify({ msg, auth }));
+
+    closeDropDown(notifyToggleRef, notifyContentRef);
+  };
 
   return (
     <nav className="nav">
@@ -33,16 +56,26 @@ const NavList = ({ avatar, id, theme }) => {
             </Link>
           </li>
         ))}
-        <li className="nav_list_item">
+        <li className="nav_list_item" onClick={onOpen}>
           <div className="nav_list_link">
             <Icon type="Add" />
           </div>
         </li>
         <li className="nav_list_item">
-          <div className="nav_list_link">
+          <div className="nav_list_link" ref={notifyToggleRef}>
             <Icon type="Favorite" />
+            {notify.data?.length > 0 && (
+              <span className="nav_list_link_bage">{notify.data?.length}</span>
+            )}
           </div>
+          <NotifyDrop
+            ref={notifyContentRef}
+            notify={notify}
+            auth={auth}
+            onClose={onCloseNotify}
+          />
         </li>
+
         <li className="nav_list_item" ref={userToggleRef}>
           <div className="nav_list_link">
             <Avatar
@@ -75,6 +108,10 @@ const NavList = ({ avatar, id, theme }) => {
           </ul>
         </li>
       </ul>
+
+      <Modal open={open} onClose={onClose} type="medium">
+        <PostModal />
+      </Modal>
     </nav>
   );
 };

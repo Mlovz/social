@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./info.scss";
 
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import {
   Avatar,
   Button,
@@ -11,27 +9,20 @@ import {
   Followed,
   Modal,
 } from "components";
-import { getProfileUser } from "redux/actions/profileAction";
 
-const Info = () => {
-  const dispatch = useDispatch();
-  const { auth, profile } = useSelector((state) => state);
-  const { id } = useParams();
+const Info = ({ auth, dispatch, profile, id }) => {
   const [user, setUser] = useState([]);
   const [open, setOpen] = useState(false);
   const [followers, setFollowers] = useState("");
 
   useEffect(() => {
-    if (auth?.token) {
-      if (id === auth.user?._id) {
-        setUser([auth.user]);
-      } else {
-        dispatch(getProfileUser({ users: profile.users, id, auth }));
-        const newUser = profile.users?.filter((user) => user._id === id);
-        setUser(newUser);
-      }
+    if (id === auth.user?._id) {
+      setUser([auth.user]);
+    } else {
+      const newUser = profile.users?.filter((user) => user._id === id);
+      setUser(newUser);
     }
-  }, [id, auth, dispatch, profile.users]);
+  }, [id, auth, profile.users]);
 
   const onClose = () => {
     setOpen(false);
@@ -45,7 +36,7 @@ const Info = () => {
   return (
     <div className="">
       {user?.map((item) => (
-        <div className="info">
+        <div className="info" key={item._id}>
           <Avatar src={item?.avatar} size="big" />
 
           <div className="info_body">
@@ -72,7 +63,7 @@ const Info = () => {
             <div className="info_body_content">
               <h2 className="fs_24">{item.fullname}</h2>
               <span className="fs_14">@{item.username}</span>
-              <a href={item.website} target="_blank">
+              <a href={item.website} target="_blank" rel="noreferrer">
                 {item.website}
               </a>
               <a href={`tel:${item.mobile}`}>{item.mobile}</a>

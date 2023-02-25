@@ -1,0 +1,48 @@
+@use "src/sass/abstracts" as *;
+
+.post-menu {
+  position: relative;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  &:hover {
+    border: 1px solid $gray_100;
+  }
+
+  &_list {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    min-width: 150px;
+    width: 180px;
+    background: #fff;
+    border: 1px solid $gray_100;
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+    z-index: 99;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      cursor: pointer;
+      span {
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      &:hover {
+        background: $gray_100;
+      }
+    }
+  }
+}

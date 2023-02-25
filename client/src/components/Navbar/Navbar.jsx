@@ -1,13 +1,12 @@
-import React from "react";
-import "./navbar.scss";
 import Logo from "assets/logo.png";
+import "./navbar.scss";
 
-import { Button, Form, Icon, Input, Login, Modal } from "components";
-import NavList from "./NavList/NavList";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { Button, Login, Modal } from "components";
 import Register from "components/Modals/Auth/Register/Register";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { AUTH_TYPES } from "redux/types/authTypes";
+import NavList from "./NavList/NavList";
 import Search from "./Search/Search";
 
 const Navbar = () => {

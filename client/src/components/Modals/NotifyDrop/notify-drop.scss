@@ -1,0 +1,97 @@
+@use "src/sass/abstracts" as *;
+
+.notify-drop {
+  position: absolute;
+  right: 0;
+  top: 150%;
+  width: 400px;
+  min-height: 200px;
+  max-height: 500px;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  background: #fff;
+  border: 1px solid $gray_100;
+  border-radius: 10px;
+  z-index: 200;
+  padding: 10px;
+
+  &_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    > h1 {
+      font-weight: 800 !important;
+    }
+  }
+
+  &_footer {
+    margin-top: 20px;
+    padding: 10px 0;
+    border-top: 1px solid $gray_100;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    > img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
+  }
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &_box {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &_link {
+      color: $gray_900;
+      padding: 10px;
+
+      border-radius: 5px;
+      &:hover {
+        text-decoration: underline;
+        background: $gray_100;
+      }
+    }
+
+    &_header {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      > h6 {
+        font-weight: 600;
+      }
+
+      > p {
+        margin-left: 10px;
+      }
+    }
+
+    &_body {
+      margin-top: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &_footer {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}

@@ -1,0 +1,77 @@
+@use "src/sass/abstracts" as *;
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 10px 15px;
+
+  &_ava {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .user-card {
+      h6 {
+        font-weight: 500;
+        font-size: 14px;
+      }
+    }
+  }
+
+  &_info {
+    transform: translateY(2px);
+    > h2 {
+      line-height: 15px;
+      font-weight: 500;
+    }
+    > span {
+      color: $red_900;
+    }
+  }
+
+  &_icon {
+    position: relative;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    &:hover {
+      border: 1px solid $gray_100;
+    }
+  }
+
+  &_list {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    width: 150px;
+    background: #fff;
+    border: 1px solid $gray_100;
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+    z-index: 99;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      cursor: pointer;
+      span {
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      &:hover {
+        background: $gray_100;
+      }
+    }
+  }
+}

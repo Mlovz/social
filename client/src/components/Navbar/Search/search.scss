@@ -43,6 +43,7 @@
     visibility: hidden;
     transition: all 0.3s;
     overflow-y: auto;
+    z-index: 100;
 
     > h1 {
       position: absolute;

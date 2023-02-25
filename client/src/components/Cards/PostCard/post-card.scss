@@ -1,0 +1,14 @@
+@use "src/sass/abstracts" as *;
+
+.post-card {
+  max-width: 593px;
+  background: #fff;
+  border: 1px solid $gray_100;
+  border-radius: 5px;
+
+  &:hover {
+    .circle {
+      display: flex;
+    }
+  }
+}

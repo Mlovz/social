@@ -6,24 +6,24 @@ import "./follow-btn.scss";
 const FollowBtn = ({ user, size }) => {
   const [followed, setFollowed] = useState(false);
   const dispatch = useDispatch();
-  const { auth, profile } = useSelector((state) => state);
+  const { auth, profile, socket } = useSelector((state) => state);
 
   useEffect(() => {
     if (auth.user?.following.find((item) => item._id === user._id)) {
       setFollowed(true);
-    } else {
-      setFollowed(false);
     }
+
+    return () => setFollowed(false);
   }, [auth.user?.following]);
 
   const handleFollow = (e) => {
     e.preventDefault();
-    dispatch(follow({ users: profile.users, user, auth }));
+    dispatch(follow({ users: profile.users, user, auth, socket }));
   };
 
   const handleUnFollow = (e) => {
     e.preventDefault();
-    dispatch(unfollow({ users: profile.users, user, auth }));
+    dispatch(unfollow({ users: profile.users, user, auth, socket }));
   };
 
   return (

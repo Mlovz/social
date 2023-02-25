@@ -1,12 +1,19 @@
+@use "src/sass/abstracts" as *;
+
 .heading {
   font-weight: 700;
   font-size: 24px;
   line-height: 33px;
-  color: var(--primary-color);
+  // color: var(--primary-color);
 
   &.medium {
     font-weight: 300;
     font-size: 16px;
     line-height: 22px;
+  }
+
+  &.center {
+    width: 100%;
+    text-align: center;
   }
 }

@@ -1,0 +1,52 @@
+@use "src/sass/abstracts" as *;
+
+.user-search {
+  min-height: 400px;
+  > form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    > h1 {
+      font-weight: 600 !important;
+    }
+  }
+
+  &_list {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid $gray_100;
+    height: 350px;
+    overflow-y: auto;
+
+    li {
+      padding: 10px;
+      width: 100%;
+      cursor: pointer;
+      &:hover {
+        background: $gray_100;
+      }
+    }
+
+    .not_users {
+      color: $gray_100;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &_close {
+    position: absolute;
+    top: 50%;
+    right: -30px;
+    transform: translateY(-50%);
+    font-size: 35px;
+    cursor: pointer;
+    color: $gray_300;
+  }
+}
